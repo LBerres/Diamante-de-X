@@ -14,7 +14,50 @@
      */
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.Clear();
+            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("                                                     Diamante de X");
+            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+
+            Console.WriteLine();
+
+            Console.Write("Digite Um Número Ímpar Positivo: ");
+            int tamanhoDiamante = Convert.ToInt32(Console.ReadLine());
+
+            int quantidadeDeLinhas = (tamanhoDiamante - 1) /2;
+
+            int quantidadeDeX = 1;
+
+            int quantidadeDeEspacos = quantidadeDeLinhas;
+
+            #region Parte Superior
+            for (int linha = 0; linha < quantidadeDeLinhas; linha++)
+            {
+                // Desenhar os Espaços da Linha
+                for (int espaco = 0; espaco < quantidadeDeEspacos; espaco++)
+                    Console.Write(" ");
+
+                // Desenhar os X da Linha
+                for (int x = 0; x < quantidadeDeX; x++)
+                    Console.Write("x");
+
+                quantidadeDeX += 2;
+                quantidadeDeEspacos--;
+
+                Console.WriteLine();
+            }
+
+            #endregion
+
+            #region Parte do Meio
+
+            #endregion
+
+            #region Parte Inferior
+
+            #endregion
+
+            Console.ReadLine();
         }
     }
 }
