@@ -22,8 +22,10 @@
             Console.WriteLine();
 
             Console.Write("Digite Um Número Ímpar Positivo: ");
-
             int tamanhoDiamante = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+
             int quantidadeDeLinhas = (tamanhoDiamante - 1) /2;
             int quantidadeDeX = 1;
             int quantidadeDeEspacos = quantidadeDeLinhas;
@@ -39,7 +41,7 @@
 
                 // Desenhar os X da Linha
                 for (int x = 0; x < quantidadeDeX; x++)
-                    Console.Write("x");
+                    Console.Write("X");
 
                 quantidadeDeX += 2;
                 quantidadeDeEspacos--;
@@ -50,13 +52,30 @@
 
             #region Parte do Meio
             for (int x = 0; x < tamanhoDiamante; x++)
-                Console.Write("x");
+                Console.Write("X");
 
             Console.WriteLine();
             #endregion
 
-            #region Parte Inferior
+            quantidadeDeX -= 2;
+            quantidadeDeEspacos = 1;
 
+            #region Parte Inferior
+            for (int linha = 0; linha < quantidadeDeLinhas; linha++)
+            {
+                // Desenhar os Espaços da Linha
+                for (int espaco = 0; espaco < quantidadeDeEspacos; espaco++)
+                    Console.Write(" ");
+
+                // Desenhar os X da Linha
+                for (int x = 0; x < quantidadeDeX; x++)
+                    Console.Write("X");
+
+                quantidadeDeX -= 2;
+                quantidadeDeEspacos++;
+
+                Console.WriteLine();
+            }
             #endregion
 
             Console.ReadLine();
