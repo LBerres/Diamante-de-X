@@ -1,7 +1,6 @@
 ﻿namespace DiamantedeX.ConsoleApp
 {
-    internal class Program
-    {/*
+    /*
       * Desenvolver um programa em que, dado um número ímpar como entrada,
         exibirá um diamante desenhado com a letra 'X'.
 
@@ -12,7 +11,34 @@
         fornecido.
         ● A linha central do diamante deve conter o número máximo de Xs.
      */
+
+    internal class Program
+    {
+        static int quantidadeDeLinhas;
+        static int quantidadeDeX;
+        static int quantidadeDeEspacos;
+
         static void Main(string[] args)
+        {
+            ExibirCabeçalho();
+            int tamanhoDiamante = ObterTamanhoDiamante();
+
+            quantidadeDeLinhas = (tamanhoDiamante - 1) / 2;
+            quantidadeDeX = 1;
+            quantidadeDeEspacos = quantidadeDeLinhas;
+
+            ParteSuperior();
+
+            ParteDoMeio(tamanhoDiamante);
+
+            quantidadeDeX -= 2;
+            quantidadeDeEspacos = 1;
+
+            ParteInferior();
+
+            Console.ReadLine();
+        }
+        static void ExibirCabeçalho()
         {
             Console.Clear();
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
@@ -20,19 +46,21 @@
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
 
             Console.WriteLine();
-
+        }
+        static int ObterTamanhoDiamante()
+        {
             Console.Write("Digite Um Número Ímpar Positivo: ");
             int tamanhoDiamante = Convert.ToInt32(Console.ReadLine());
+
             Console.WriteLine();
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
 
-            int quantidadeDeLinhas = (tamanhoDiamante - 1) /2;
-            int quantidadeDeX = 1;
-            int quantidadeDeEspacos = quantidadeDeLinhas;
-
+            return tamanhoDiamante;
+        }
+        static void ParteSuperior()
+        {
             Console.WriteLine();
 
-            #region Parte Superior
             for (int linha = 0; linha < quantidadeDeLinhas; linha++)
             {
                 // Desenhar os Espaços da Linha
@@ -48,19 +76,16 @@
 
                 Console.WriteLine();
             }
-            #endregion
-
-            #region Parte do Meio
+        }
+        static void ParteDoMeio(int tamanhoDiamante)
+        {
             for (int x = 0; x < tamanhoDiamante; x++)
                 Console.Write("X");
 
             Console.WriteLine();
-            #endregion
-
-            quantidadeDeX -= 2;
-            quantidadeDeEspacos = 1;
-
-            #region Parte Inferior
+        }
+        static void ParteInferior()
+        {
             for (int linha = 0; linha < quantidadeDeLinhas; linha++)
             {
                 // Desenhar os Espaços da Linha
@@ -76,9 +101,6 @@
 
                 Console.WriteLine();
             }
-            #endregion
-
-            Console.ReadLine();
         }
     }
 }
