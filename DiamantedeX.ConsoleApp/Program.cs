@@ -22,13 +22,13 @@
             Console.WriteLine();
 
             Console.Write("Digite Um Número Ímpar Positivo: ");
+
             int tamanhoDiamante = Convert.ToInt32(Console.ReadLine());
-
             int quantidadeDeLinhas = (tamanhoDiamante - 1) /2;
-
             int quantidadeDeX = 1;
-
             int quantidadeDeEspacos = quantidadeDeLinhas;
+
+            Console.WriteLine();
 
             #region Parte Superior
             for (int linha = 0; linha < quantidadeDeLinhas; linha++)
@@ -46,11 +46,13 @@
 
                 Console.WriteLine();
             }
-
             #endregion
 
             #region Parte do Meio
+            for (int x = 0; x < tamanhoDiamante; x++)
+                Console.Write("x");
 
+            Console.WriteLine();
             #endregion
 
             #region Parte Inferior
