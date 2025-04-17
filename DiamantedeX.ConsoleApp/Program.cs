@@ -18,12 +18,12 @@ internal class Program
     {
         while (true)
         {
-            MenuInicial();
+            ExibirMenuInicial();
             int tamanhoDiamante = ObterTamanhoDiamante();
 
             GeradorDeDiamante.DesenharDiamante(tamanhoDiamante);
 
-            string opcaofinal = OpçõesFinais();
+            string opcaofinal = ExibirMenuFinal();
             if (opcaofinal == "R")
                 continue;
             else if (opcaofinal == "S")
@@ -32,28 +32,73 @@ internal class Program
 
     }
 
-    public static void MenuInicial()
+    public static void ExibirMenuInicial()
     {
         Console.Clear();
         Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-        Console.WriteLine("                                                     Diamante de X");
-        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-
         Console.WriteLine();
+        Console.WriteLine("                                                     Diamante de X");
+        Console.WriteLine();
+        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
     }
 
     public static int ObterTamanhoDiamante()
     {
-        Console.Write("Digite Um Número Ímpar Positivo: ");
-        int tamanhoDiamante = Convert.ToInt32(Console.ReadLine());
+        int tamanhoDiamante;
 
-        Console.WriteLine();
-        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+        while (true)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Digite Um Número Inteiro Ímpar: ");
+            Console.WriteLine();
+            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine();
+            tamanhoDiamante = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
 
+            if (tamanhoDiamante <= 0)
+            {
+                Console.Clear();
+                ExibirMenuInicial();
+                Console.WriteLine();
+                Console.WriteLine("                                              !O Número Deve Ser Positivo!");
+                Console.WriteLine();
+                Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+
+                continue;
+            }
+
+            if (tamanhoDiamante == 1)
+            {
+                Console.Clear();
+                ExibirMenuInicial();
+                Console.WriteLine();
+                Console.WriteLine("                                             !Digite Um Número Superior A 1!");
+                Console.WriteLine();
+                Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+
+                continue;
+            }
+
+            if ((tamanhoDiamante / 2) * 2 == tamanhoDiamante)
+            {
+                Console.Clear();
+                ExibirMenuInicial();
+                Console.WriteLine();
+                Console.WriteLine("                                                !O Número Deve ser Ímpar!");
+                Console.WriteLine();
+                Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+
+                continue;
+            }
+
+          break;
+        }
         return tamanhoDiamante;
     }
 
-    private static string OpçõesFinais()
+    private static string ExibirMenuFinal()
     {
         Console.WriteLine();
         Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
